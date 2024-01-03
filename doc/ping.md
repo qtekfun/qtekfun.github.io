@@ -9,3 +9,5 @@ of them:
 * `ping -l 65500 google.com` the default echo byte size is 32. If you want to modify that, use `-l` with a value
 between 0 and 65500.
 * `ping -l 65500 -f google.com` the `-f` avoids data fragmentation if passing through a router or a switch.
+
+[HOME](../README.md)

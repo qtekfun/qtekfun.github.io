@@ -10,3 +10,5 @@ The best compilation of Firefox extensions.
 * [Cookie AutoDelete](https://addons.mozilla.org/en-US/firefox/addon/cookie-autodelete/)
 * [Privacy Badger](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/)
 * [Ublock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+
+[HOME](../README.md)

@@ -7,3 +7,4 @@ The best compilation of Chromium extension for use the on Brave, Edge or Google 
 * [Session Box](https://chromewebstore.google.com/detail/sessionbox-multi-login-to/megbklhjamjbcafknkgmokldgolkdfig)
 * [Ninja Cookie](https://chromewebstore.google.com/detail/ninja-cookie/jifeafcpcjjgnlcnkffmeegehmnmkefl)
 
+[HOME](../README.md)

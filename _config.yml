@@ -1,5 +1,6 @@
-remote_theme: pages-themes/midnight@v0.2.0
+theme: minima
 plugins:
 - jekyll-remote-theme
+- jekyll-feed
 title: Qtekfun's thoughts
 description: This are my public notes to help everyone

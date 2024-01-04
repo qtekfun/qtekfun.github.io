@@ -35,5 +35,3 @@ git config --global alias.lg3 "log --graph --format=format:'%C(bold blue)%h%C(re
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
-
-[HOME](../README.md)

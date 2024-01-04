@@ -17,8 +17,6 @@ of them:
 between 0 and 65500.
 * `ping -l 65500 -f google.com` the `-f` avoids data fragmentation if passing through a router or a switch.
 
-[HOME](../README.md)
-
 ## Traceroute/Tracert
 
 In windows: `tracert`
@@ -34,17 +32,12 @@ vs
 
 It´s "layer 3" command.
 
-[HOME](../README.md)
-
 ## Nslookup
 
 * Fordward Lookup: `nslookup qtekfun.github.io`
 * Reverse Lookup: `nslookup 185.199.108.153`
 
-[HOME](../README.md)
 
 ## Angry IP Scanner
 
 WIP
-
-[HOME](../README.md)

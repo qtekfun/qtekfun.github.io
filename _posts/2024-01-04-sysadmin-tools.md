@@ -1,4 +1,7 @@
-# Sysadmin tools
+---
+layout: post
+title:  "Sysadmin tools"
+---
 
 Some resume of the things I´ve never use in my daily basis.
 

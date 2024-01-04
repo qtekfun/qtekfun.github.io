@@ -1,4 +1,8 @@
-# gitAliases
+---
+layout: post
+title:  "Git Aliases"
+---
+
 This doc will store my git aliases for fast deployment in new machines
 
 ## Aliases:

@@ -40,4 +40,10 @@ It´s "layer 3" command.
 
 ## Angry IP Scanner
 
-WIP
+> Requires Java
+
+Things that can be done with *Angry IP Scanner* are:
+* IP Range Ping Scan
+* Latency
+* Hotsname Lookup (if you have local DNS)
+* MAC Address (Requires Layer 2)

@@ -9,5 +9,4 @@ permalink: /:categories/:title/
 markdown: kramdown
 theme: minima
 plugins:
-- jekyll-remote-theme
 - jekyll-feed

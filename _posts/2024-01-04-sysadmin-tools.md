@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Sysadmin tools"
+categories: Tech
 ---
 
 Some resume of the things I´ve never use in my daily basis.

@@ -3,6 +3,7 @@ title: Qtekfun's thoughts
 description: This are my public notes to help everyone
 twitter_username: qtekfun
 github_username:  qtekfun
+permalink: /:categories/:title/
 
 # Build settings
 markdown: kramdown

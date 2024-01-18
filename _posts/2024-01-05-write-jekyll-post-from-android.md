@@ -4,7 +4,13 @@ title:  "Write a Jekyll post from Android"
 categories: Tech
 ---
 
-If you are like me, that your phone is the center of your life, working from your phone is very important for you. But you also want to share with everyone all the things you have learned today. To do that, you've created a Jekyll site as a Github Page and now you want to publish from Android.
+If you are like me, that your phone is the center of your life, working from your phone is very important for you.
+But you also want to share with everyone all the things you have learned today. To do that, you've created a Jekyll
+site as a Github Page and now you want to publish from Android.
+
+Some time ago I made a post about coding from Android in Spanish. At that point, my english level was worse, my web
+was in [Hugo](https://gohugo.io/), which is faster and better than [Jekyll](https://jekyllrb.com/) but harder to
+maintain. So, now as I moved to Jekyll, I would like to explain how to do it.
 
 As this post is fully written from my smartphone, I would like to explain you how to do it.
 
@@ -22,7 +28,9 @@ Once you have Droidify, you will need to install Termux from it.
 
 ### 2. Configuring Termux
 
-When opening Termux first time, you will have to update local packages at least. To do that, run `pkg upgrade` and answer "y" to all the questions.
+When opening Termux first time, you will have to update local packages at least. To do that, run `pkg upgrade` and
+answer "y" to all the questions. I made a post here about [Termux Tips](/_posts/2024-01-17-Termux-Tips.md) that
+does that in one command only.
 
 You will also need to have access to the storage from termux to use your Android's text editor. To grant that you need to run `termux-setup-storage`.
 
@@ -43,13 +51,14 @@ gem install jekyll
 
 ### 3. Get your web
 
-To download your webpage, you will need to clone your source code from our own repo. 
+To download your webpage, you will need to clone your source code from our own repo.
 
-You will want to clone it under a path like: 
+You will want to clone it under a path like:
 
 `~/storage/shared/repo`
 
-In this way, you could use one code editor like [Squircle CE](https://github.com/massivemadness/Squircle-CE) to create your new posts.
+In this way, you could use one code editor like [Squircle CE](https://github.com/massivemadness/Squircle-CE) to
+create your new posts. If you don´t like it, you also have [A-Code](https://github.com/deadlyjack/Acode).
 
 ### 4. Create the post:
 

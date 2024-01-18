@@ -6,7 +6,7 @@ categories: DevOps
 As part of my DevOps work, maintain Jenkins infra and Jenkins itself healthy is one of my responsabilities. In this
 post I want to write down some of the things I do from time to time and I always forgot on how to do them.
 
-![Jira Oops!](images/jira_oops.png)
+![Jira Oops!](/assets/jira_oops.png)
 
 ## Prevent Jenkins from execute new builds
 

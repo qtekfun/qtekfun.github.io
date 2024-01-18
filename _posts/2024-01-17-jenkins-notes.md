@@ -6,6 +6,8 @@ categories: DevOps
 As part of my DevOps work, maintain Jenkins infra and Jenkins itself healthy is one of my responsabilities. In this
 post I want to write down some of the things I do from time to time and I always forgot on how to do them.
 
+![Jira Oops!](images/jira_oops.png)
+
 ## Prevent Jenkins from execute new builds
 
 This is one of the main task to do before update whatever. The best for that is to enable "Quiet Down" mode. For
@@ -22,4 +24,9 @@ or from CLI:
 [cancel-]quiet-down
 ```
 
-Source: [StackOverflow](https://stackoverflow.com/questions/8472589/preventing-jenkins-from-executing-new-builds-in-a-defined-time-frame-e-g-6-7am)
+Source:
+[StackOverflow](https://stackoverflow.com/questions/8472589/preventing-jenkins-from-executing-new-builds-in-a-defined-time-frame-e-g-6-7am)
+
+## Reboot Jenkins
+
+To reboot Jenkins, the easiest way is to use `/safeRestart`

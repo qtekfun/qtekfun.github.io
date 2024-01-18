@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "WIP First time in Fedora"
-categories: Configuration
+categories: Linux
 ---
 
 ``` bash

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Write a Jekyll post from Android"
-categories: Tech
+categories: Android
 ---
 
 If you are like me, that your phone is the center of your life, working from your phone is very important for you.

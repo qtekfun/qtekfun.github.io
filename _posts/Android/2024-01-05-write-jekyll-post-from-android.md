@@ -46,7 +46,6 @@ To install all of them, we just need to run:
 ``` bash
 pkg install git vim openssh ruby
 gem install jekyll
-
 ```
 
 ### 3. Get your web
@@ -72,8 +71,3 @@ You will create the markdown as usually in a Jekyll site. To test it you have to
 Now that you have reviewed your post, from the termux console, you just push it to your remote repo and wait for Github actions to deploy them.
 
 Happy publishing!
-
-
-
-
-

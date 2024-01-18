@@ -30,3 +30,19 @@ Source:
 ## Reboot Jenkins
 
 To reboot Jenkins, the easiest way is to use `/safeRestart`
+
+## Search for Jenkins errors
+
+Each time you receive a "Oops!" screen you have a Logging ID. That ID is also in the logs. The fastest way to get
+there is through the UI under the path:
+
+> Manage Jenkins > System Log > All Jenkins Logs
+
+And there you will have something like:
+
+```
+Jan. 18, 2022 19:50:11 WARNING hudson.init.impl.InstallUncaughtExceptionHandler handleException
+Caught unhandled exception with ID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+And there you have the info.

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Disk benchmarking"
+title:  "Disk benchmarking in Linux"
 categories: Linux
 ---
 

@@ -16,7 +16,6 @@ fastestmirror=True
 max_parallel_downloads=10
 defaultyes=True
 keepcache=True
-
 ```
 
 Just after that, rebuild dnf cache with:
@@ -43,9 +42,10 @@ sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda
 Another interesting thing is to enable the missing media codecs:
 
 ``` bash
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 sudo dnf groupupdate sound-and-video
-
+sudo dnf install intel-media-driver
 ```
 
 ## Install vscode
@@ -57,7 +57,6 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 dnf check-update
 sudo dnf install code
-
 ```
 
 ## Change machine name
@@ -66,4 +65,18 @@ Fedora always name the laptop **fedora** after installing it. To rename ir, just
 
 ``` bash
 sudo hostnamectl set-hostname <computer name>
+```
+
+## Restore Minimize and Maximize buttons
+
+To enable them:
+
+``` bash
+gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+```
+
+And to put them on the left (Mac OS style):
+
+``` bash
+gsettings set org.gnome.desktop.wm.preferences button-layout 'close,maximize,minimize:appmenu'
 ```

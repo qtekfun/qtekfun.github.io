@@ -4,6 +4,9 @@ description: This are my public notes to help everyone
 twitter_username: qtekfun
 github_username:  qtekfun
 
+url: https://qtekfun.github.io
+baseurl: /
+
 remote_theme: daattali/beautiful-jekyll@6.0.1
 
 ###########################################################

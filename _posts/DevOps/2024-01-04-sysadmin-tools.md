@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Sysadmin tools"
-categories: DevOps
+categories: devops
 ---
 
 Some resume of the things I´ve never use in my daily basis.

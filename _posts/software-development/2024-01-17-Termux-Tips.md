@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Termux Tips"
-categories: DevOps
+categories: software-development
 ---
 
 To start working fast after installing Termux, the command I always run is:

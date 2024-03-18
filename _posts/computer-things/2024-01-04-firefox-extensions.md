@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Firefox Extensions"
-categories: Linux
+categories: computer-things
 ---
 
 The best compilation of Firefox extensions.

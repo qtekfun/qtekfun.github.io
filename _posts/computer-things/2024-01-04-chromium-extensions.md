@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Chromium Extensions"
-categories: Linux
+categories: computer-things
 ---
 
 The best compilation of Chromium extension for use the on Brave, Edge or Google Chrome.

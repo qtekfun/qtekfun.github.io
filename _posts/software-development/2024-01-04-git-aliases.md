@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Git Aliases"
-categories: "Software Development"
+categories: software-development
 ---
 
 This doc will store my git aliases for fast deployment in new machines

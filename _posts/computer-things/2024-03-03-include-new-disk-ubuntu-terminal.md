@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to include a new disk in an existing Ubuntu Server?"
-categories: "Computer things"
+categories: computer-things
 ---
 
 I'm playing around with proxmox and after cloning one template I'm always including a new disk to manage all data. To do that, this is the process:

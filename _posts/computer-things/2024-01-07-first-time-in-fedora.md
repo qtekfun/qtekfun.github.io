@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "First time in Fedora"
-categories: Linux
+categories: computer-things
 ---
 
 I've just started using Fedora. I was always an Ubuntu user (or variations like Lubuntu or Kubuntu). So Iǘe recently discovered lots of things that could help you if you're starting running Fedora or one of its spins.

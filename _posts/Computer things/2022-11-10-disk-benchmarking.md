@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Disk benchmarking in Linux"
-categories: Linux
+categories: "Computer things"
 ---
 
 This is a short post. Today I´ve bought a case for converting a nvme m.2 ssd disk into an external usb disk. This

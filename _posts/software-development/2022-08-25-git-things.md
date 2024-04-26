@@ -83,4 +83,14 @@ powerful also.
   the -S parameter. eg: `git log -S "Hello World"` this will return each commit that in their code has a "Hello
   World" text.
 
+## Merge Request vs Pull Request
+
+This is a stupid tricky question that some people ask me in the past. In short they are the same depending on the
+context that you´re talking about.
+
+A merge request occurs when you develop something in one branch and you want to merge it to another branch,
+generally `master` or `main`. This is also used in Gitlab.
+
+A pull request is more or less the same but in the Github or Bitbucket world.
+
 And until now, this is the most interesting commands I want to share with you.

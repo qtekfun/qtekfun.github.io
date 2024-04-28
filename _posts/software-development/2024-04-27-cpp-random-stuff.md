@@ -35,3 +35,8 @@ The way of assure that is that the constructor of the controller fails if the re
 exits reaching an exception.
 
 For extending information you can read [this](https://en.cppreference.com/w/cpp/language/raii)
+
+## C++ Design patterns
+
+I thought about writing here regarding the design patterns but as it will be very long, I decided better to write
+it here: [Design Patterns in C++](/_posts/software-development/2024-04-28-cpp-design-patterns.md)

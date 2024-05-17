@@ -4,8 +4,6 @@ title:  "Zsh: install and configure like a pro"
 categories: software-development
 ---
 
-# Zsh: install and configure like a pro
-
 Today, I want to start learning Zsh. How to install it, how to configure it and the tricky things. So, let's go.
 
 ## How to install Zsh?

@@ -1,3 +1,9 @@
+---
+layout: post
+title:  "How to delete Github credentials for https in Windows?"
+categories: computer-things
+---
+
 # How are managed the Github credentials for https in Windows?
 
 Sometimes you forget how you do things and that's what happened to me regarding the github credentials when using

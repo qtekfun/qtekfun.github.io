@@ -29,6 +29,10 @@ git config --global alias.lg2 "log --graph --format=format:'%C(bold blue)%h%C(re
 git config --global alias.lg3 "log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset)
 %C(white black)%s%C(reset) %C(bold cyan)-- %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
 --all"
+git config --global alias.syncmaster 'merge origin/master --no-ff --no-commit'
+git config --global alias.sync "!f() { git merge origin/$1 --no-ff --no-commit; }; f"
+git config --global alias.deinitsub 'submodule deinit --all -f'
+git config --global alias.initsub 'submodule update --init --recursive'
 ```
 
 ## Non Automatic Aliases:

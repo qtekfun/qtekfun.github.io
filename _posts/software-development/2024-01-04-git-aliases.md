@@ -33,6 +33,7 @@ git config --global alias.syncmaster 'merge origin/master --no-ff --no-commit'
 git config --global alias.sync "!f() { git merge origin/$1 --no-ff --no-commit; }; f"
 git config --global alias.deinitsub 'submodule deinit --all -f'
 git config --global alias.initsub 'submodule update --init --recursive'
+git config --global alias.undo-commit 'reset --mixed HEAD~1'
 ```
 
 ## Non Automatic Aliases:

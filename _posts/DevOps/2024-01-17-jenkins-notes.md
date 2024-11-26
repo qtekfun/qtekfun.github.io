@@ -30,6 +30,10 @@ Source:
 
 To reboot Jenkins, the easiest way is to use `/safeRestart`
 
+## Shutdown Jenkins
+
+To shutdown Jenkins, the easiest way is to use `/exit`
+
 ## Search for Jenkins errors
 
 Each time you receive a "Oops!" screen you have a Logging ID. That ID is also in the logs. The fastest way to get

@@ -1,22 +1,22 @@
 ---
-title: "Automatiza las Actualizaciones con Unattended-Upgrades"
+title: "Automate Updates with Unattended-Upgrades"
 layout: post
 date: 2025-02-01
-categories: computer-things
+categories: devops
 ---
 
-¡Hola a todos los entusiastas de la virtualización y la administración de sistemas! En esta ocasión, vamos a configurar nuestro servidor para que se mantenga actualizado automáticamente usando **unattended-upgrades**. Además, configuraremos **Postfix** para recibir notificaciones de cada actualización. ¡Vamos allá!
+Hello to all virtualization and system administration enthusiasts! This time, we will configure our server to stay automatically updated using **unattended-upgrades**. Additionally, we will set up **Postfix** to receive notifications for each update. Let's get started!
 
 ---
 
-## Paso 1: Instalación de Unattended-Upgrades
-Primero, necesitamos instalar `unattended-upgrades` y `apt-listchanges` para gestionar las actualizaciones automáticas y los cambios de paquetes. Ejecuta:
+## Step 1: Installing Unattended-Upgrades
+First, we need to install `unattended-upgrades` and `apt-listchanges` to manage automatic updates and package changes. Run:
 
 ```bash
 sudo apt update && sudo apt install unattended-upgrades apt-listchanges -y
 ```
 
-Activa y arranca el servicio:
+Enable and start the service:
 
 ```bash
 sudo systemctl start unattended-upgrades
@@ -25,23 +25,19 @@ sudo systemctl enable unattended-upgrades
 
 ---
 
-## Paso 2: Configuración de Unattended-Upgrades
-Editamos el archivo de configuración principal para incluir los repositorios de Proxmox:
+## Step 2: Configuring Unattended-Upgrades
+Edit the main configuration file to include Proxmox repositories:
 
 ```bash
 sudo vim /etc/apt/apt.conf.d/50unattended-upgrades
 ```
 
-Asegúrate de agregar:
+Make sure to add:
 
 ```json
 Unattended-Upgrade::Allowed-Origins {
         "${distro_id}:${distro_codename}";
         "${distro_id}:${distro_codename}-security";
-        // Extended Security Maintenance; doesn't necessarily exist for
-        // every release and this system may not have it installed, but if
-        // available, the policy for updates is such that unattended-upgrades
-        // should also install from here by default.
         "${distro_id}ESMApps:${distro_codename}-apps-security";
         "${distro_id}ESM:${distro_codename}-infra-security";
         "${distro_id}:${distro_codename}-updates";
@@ -53,7 +49,7 @@ Unattended-Upgrade::Allowed-Origins {
 Unattended-Upgrade::DevRelease "auto";
 Unattended-Upgrade::AutoFixInterruptedDpkg "true";
 Unattended-Upgrade::MinimalSteps "true";
-Unattended-Upgrade::Mail "YOURMAILHERE"
+Unattended-Upgrade::Mail "YOURMAILHERE";
 Unattended-Upgrade::MailReport "on-change";
 Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
 Unattended-Upgrade::Remove-New-Unused-Dependencies "true";
@@ -62,8 +58,7 @@ Unattended-Upgrade::Automatic-Reboot "true";
 Unattended-Upgrade::Automatic-Reboot-Time "02:00";
 ```
 
-
-Si hablamos de un servidor Proxmox, necesitaremos además:
+For a Proxmox server, additionally include:
 
 ```json
 Unattended-Upgrade::Origins-Pattern {
@@ -72,15 +67,15 @@ Unattended-Upgrade::Origins-Pattern {
 };
 ```
 
-Para Proxmox Enterprise, usa `Proxmox VE Enterprise` en lugar de `No-Subscription`.
+For Proxmox Enterprise, use `Proxmox VE Enterprise` instead of `No-Subscription`.
 
-Configura la frecuencia de actualizaciones:
+Set the update frequency:
 
 ```bash
 sudo vim /etc/apt/apt.conf.d/20auto-upgrades
 ```
 
-Añade:
+Add:
 
 ```bash
 APT::Periodic::Update-Package-Lists "1";
@@ -91,26 +86,26 @@ APT::Periodic::Unattended-Upgrade "1";
 
 ---
 
-## Paso 3: Configurar Postfix para Notificaciones de Correo
-Instalamos `postfix` y `mailutils` para manejar el correo saliente:
+## Step 3: Configure Postfix for Email Notifications
+Install `postfix` and `mailutils` to handle outgoing email:
 
 ```bash
 sudo apt install -y postfix mailutils
 ```
 
-Configuramos el archivo principal:
+Edit the main configuration file:
 
 ```bash
 sudo vim /etc/postfix/main.cf
 ```
 
-Añade o edita las siguientes líneas para configurar tu servidor SMTP:
+Add or edit the following lines to configure your SMTP server:
 
 ```bash
 inet_protocols = ipv4
 
-# google mail configuration
-relayhost = smtp.tuservidor.com:587
+# Mail config
+relayhost = smtp.yourserver.com:587
 smtp_use_tls = yes
 smtp_sasl_auth_enable = yes
 smtp_sasl_security_options =
@@ -121,19 +116,19 @@ smtp_tls_session_cache_timeout = 3600s
 smtp_header_checks = pcre:/etc/postfix/smtp_header_checks
 ```
 
-Edita el archivo de contraseñas:
+Edit the password file:
 
 ```bash
 sudo vim /etc/postfix/sasl_passwd
 ```
 
-Y añade:
+And add:
 
 ```bash
-[smtp.tuservidor.com]:587 usuario:tupassword
+[smtp.yourserver.com]:587 user:yourpassword
 ```
 
-Asegúrate de proteger este archivo y aplicarlo:
+Ensure the file is protected and applied:
 
 ```bash
 sudo chmod 600 /etc/postfix/sasl_passwd
@@ -143,18 +138,19 @@ sudo systemctl restart postfix
 
 ---
 
-## Paso 4: ¡Prueba y Ajusta!
-Prueba tu configuración con:
+## Step 4: Test and Adjust!
+Test your configuration with:
 
 ```bash
-echo "Prueba de correo desde Proxmox" | mail -s "Test Postfix" tu@email.com
+echo "Test email from Server" | mail -s "Test Postfix" your@email.com
 ```
 
-Y fuerza una actualización manual para verificar:
+And manually trigger an update to verify:
 
 ```bash
 sudo unattended-upgrades -d
 ```
 
-¡Y listo! Ahora tu servidor debería mantenerse al día con las últimas actualizaciones y notificarte por correo.
-¡Seguridad y tranquilidad!
+And that's it! Your server should now stay up-to-date with the latest updates and notify you via email.
+Security and peace of mind!
+

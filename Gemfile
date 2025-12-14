@@ -23,4 +23,4 @@ gem "jekyll-sitemap", "~> 1.4"
 
 gem "jekyll-feed", "~> 0.17.0"
 
-gem "wdm", "~> 0.1.1"
+gem "wdm", "~> 0.2.0"

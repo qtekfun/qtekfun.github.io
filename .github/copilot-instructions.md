@@ -40,7 +40,7 @@ When making changes, example tasks & precise guidance
 
 Prompt examples for an AI agent (use these when editing)
 - "Update `_includes/codeHeader.html` to add a CSS class `copyable` and update any posts using code snippets to include that class."  (Then run `bundle exec jekyll serve` locally.)
-- "Add an image to the post `2024-01-07-first-time-in-fedora.md`: place the file at `assets/computer-things/2024-01-07-first-time-in-fedora/` and update the post's markdown image path accordingly." 
+- "Add an image to the post `2024-01-07-first-time-in-fedora.md`: place the file at `assets/computer-things/2024-01-07-first-time-in-fedora/` and update the post's markdown image path accordingly."
 
 What to avoid / assumptions to verify
 - Don’t assume a CI pipeline; confirm deployment settings in the GitHub repository if automating deploys.

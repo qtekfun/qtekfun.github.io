@@ -7,9 +7,9 @@ categories: devops
 Life happens everywhere no matters where you are. And in all that places, your smartphone is always with you so let's
 have Ansible with us everywhere.
 
-# How to get Ansible on Android?
+## How to get Ansible on Android?
 
-## Pre-requirements:
+### Pre-requirements:
 
 For that we need Termux in first place. For installing it, only F-Droid's version is valid. so:
 
@@ -18,14 +18,18 @@ For that we need Termux in first place. For installing it, only F-Droid's versio
 1. Once installed, dowload from it [Termux](https://f-droid.org/en/packages/com.termux/)
 1. Now I've recomend to configure some things in it using [this](../software-development/2024-01-17-Termux-Tips.md)
 
-## Install Ansible:
+### Install Ansible
 
 For installing Ansible, first things are install dependencies:
 
 ``` shell
 pkg update && pkg upgrade -y
-pkg install python clang libffi openssl git build-essential rust -y
+pkg install binutils python rust libffi openssl clang make git build-essential -y
+export ANDROID_API_LEVEL=24
+export LDFLAGS="-L${PREFIX}/lib"
+export CPPFLAGS="-I${PREFIX}/include"
 pkg install python-pip -y
+pip install cryptography
 pip install ansible
 ```
 
@@ -35,7 +39,15 @@ That will take a while. Relax and let it finish. Once it's done, you can verify 
 ansible --version
 ```
 
-# Test Ansible on Android
+#### Extra tip
+
+If you plan to update Ansible or any other Rust packages, It's recomended to export this.
+
+``` shell
+echo "export ANDROID_API_LEVEL=24" >> ~/.bashrc
+```
+
+## Test Ansible on Android
 
 Now that we have Ansible correctly installed, let's play with it. The easiest test is to ping a server. For doing that:
 

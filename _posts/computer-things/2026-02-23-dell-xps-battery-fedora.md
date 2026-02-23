@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "How to Limit Battery Charging on a Dell XPS 9300 with Fedora Linux"
-date: 2026-02-23 12:00:00 +0100
 categories: computer-things
 ---
 

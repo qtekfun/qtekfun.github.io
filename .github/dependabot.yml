@@ -1,14 +1,16 @@
 version: 2
 updates:
-  # 1. Mantener las gemas de Jekyll actualizadas (Gemfile)
+  # 1. Keep Jekyll gems updated (Gemfile)
   - package-ecosystem: "bundler"
-    directory: "/" # Donde está tu Gemfile
+    directory: "/" # Root directory where Gemfile is located
     schedule:
-      interval: "weekly" # Revisa cada semana. Puede ser "daily" o "monthly"
-    open-pull-requests-limit: 10 # No abrirá más de 10 PRs a la vez
+      interval: "weekly" # Check weekly for updates (daily or monthly available)
+      day: "monday"
+    open-pull-requests-limit: 10 # Maximum 10 PRs open at once
 
-  # 2. Mantener las GitHub Actions actualizadas (para tu workflow de despliegue)
+  # 2. Keep GitHub Actions updated (for workflow dependencies)
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
+      day: "monday"

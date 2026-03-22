@@ -49,6 +49,10 @@
     nav.appendChild(li);
   }
 
+  // Apply immediately — belt-and-suspenders in case head-extra.html
+  // is not picked up by the remote theme on certain layouts.
+  applyTheme(getPref());
+
   document.addEventListener('DOMContentLoaded', function () {
     injectButton();
 

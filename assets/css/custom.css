@@ -78,9 +78,77 @@ html[data-theme="dark"] {
 
 /* Direct element overrides for dark mode (fallback for anything
    that bypasses CSS variables in the Beautiful Jekyll stylesheet) */
+/* Also set variables on body — Beautiful Jekyll may re-declare them
+   there, which would shadow the html-level override via inheritance. */
 html[data-theme="dark"] body {
+  --page-col:         #13131f !important;
+  --text-col:         #cdd6f4 !important;
+  --link-col:         #89b4fa !important;
+  --hover-col:        #b4befe !important;
+  --navbar-col:       #1e1e2e !important;
+  --navbar-border-col:#313244 !important;
   background-color: #13131f;
   color: #cdd6f4;
+}
+
+/* Post page elements */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+  color: #cdd6f4;
+}
+
+html[data-theme="dark"] p,
+html[data-theme="dark"] li,
+html[data-theme="dark"] td,
+html[data-theme="dark"] th,
+html[data-theme="dark"] blockquote {
+  color: #cdd6f4;
+}
+
+html[data-theme="dark"] a {
+  color: #89b4fa;
+}
+
+html[data-theme="dark"] a:hover {
+  color: #b4befe;
+}
+
+/* Post header (intro-header without a cover image) */
+html[data-theme="dark"] .intro-header {
+  background-color: #1e1e2e;
+}
+
+html[data-theme="dark"] .intro-header .post-heading h1,
+html[data-theme="dark"] .intro-header .page-heading h1 {
+  color: #cdd6f4;
+}
+
+html[data-theme="dark"] .intro-header .post-heading .post-subheading,
+html[data-theme="dark"] .intro-header .post-heading .post-meta {
+  color: #a6adc8;
+}
+
+/* Category / tag pages */
+html[data-theme="dark"] .tag-btn {
+  background-color: #313244;
+  color: #cdd6f4;
+}
+
+/* Pagination */
+html[data-theme="dark"] .pagination .page-item .page-link {
+  background-color: #1e1e2e;
+  border-color: #313244;
+  color: #89b4fa;
+}
+
+html[data-theme="dark"] .pagination .page-item.active .page-link {
+  background-color: #5c6bc0;
+  border-color: #5c6bc0;
+  color: #ffffff;
 }
 
 html[data-theme="dark"] .navbar-custom {

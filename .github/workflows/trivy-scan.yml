@@ -1,36 +1,47 @@
-name: Trivy scan
+name: Trivy vulnerability scan
 
 on:
   push:
-    branches: [ main ]
+    branches: ["master"]
   pull_request:
-    branches: [ main ]
+    branches: ["master"]
+  schedule:
+    - cron: "0 6 * * 1"   # every Monday 06:00 UTC
+
+permissions:
+  contents: read
+  security-events: write  # required to upload SARIF to GitHub Security tab
 
 jobs:
   trivy:
     name: Trivy filesystem scan
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Trivy
-        run: |
-          set -e
-          wget -qO- https://github.com/aquasecurity/trivy/releases/latest/download/trivy_$(uname -s)_$(uname -m).tar.gz | tar xz
-          sudo mv trivy /usr/local/bin/
-
-      - name: Run Trivy (JSON report)
-        run: |
-          trivy fs --format json --output trivy-report.json --severity HIGH,CRITICAL . || true
-
-      - name: Print summary (table)
-        run: |
-          trivy fs --format table --severity HIGH,CRITICAL . || true
-
-      - name: Upload Trivy report
-        if: always()
-        uses: actions/upload-artifact@v7
+      - name: Run Trivy (SARIF output → Security tab)
+        uses: aquasecurity/trivy-action@0.28.0
         with:
-          name: trivy-report
-          path: trivy-report.json
+          scan-type: fs
+          scan-ref: .
+          format: sarif
+          output: trivy-results.sarif
+          severity: HIGH,CRITICAL
+          exit-code: "0"   # don't fail the build; findings visible in Security tab
+
+      - name: Upload SARIF to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: trivy-results.sarif
+
+      - name: Print table summary in logs
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          format: table
+          severity: HIGH,CRITICAL
+          exit-code: "0"

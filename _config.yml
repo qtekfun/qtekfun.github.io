@@ -166,6 +166,7 @@ site-css:
 
 # If you have common JavaScript files that should be included in every page, list them here
 site-js:
+  - "/assets/scripts/theme.js"
   - "/assets/scripts/copyCode.js"
 
 #################################

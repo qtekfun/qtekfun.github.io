@@ -1,0 +1,9 @@
+<!-- Theme: apply saved preference before first paint to prevent FOUC -->
+<script>
+(function () {
+  var pref = localStorage.getItem('theme') || 'auto';
+  var dark = pref === 'dark' ||
+    (pref === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+})();
+</script>

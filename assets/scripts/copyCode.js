@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.highlighter-rouge').forEach(block => {
+  document.querySelectorAll('div.highlighter-rouge').forEach(block => {
     const button = document.createElement('button');
     button.className = 'copy-code-button';
     button.textContent = 'Copy';

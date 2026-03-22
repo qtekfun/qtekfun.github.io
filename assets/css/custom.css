@@ -5,7 +5,119 @@
 /* --- Google Fonts ------------------------------------------ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* --- Base typography --------------------------------------- */
+/* ============================================================
+   Theme variables
+   Light values are the default; dark values override on
+   html[data-theme="dark"], which is set by theme.js before
+   first paint (via head-extra.html) to avoid FOUC.
+   ============================================================ */
+
+:root {
+  /* Code block */
+  --code-bg:          #f6f8fa;
+  --code-text:        #24292f;
+  --code-border:      #d0d7de;
+  /* Copy button */
+  --copy-bg:          rgba(0, 0, 0, 0.05);
+  --copy-color:       #57606a;
+  --copy-border:      rgba(0, 0, 0, 0.12);
+  --copy-hover-bg:    rgba(0, 0, 0, 0.10);
+  --copy-hover-color: #24292f;
+  /* Misc */
+  --tag-bg:           #eef0f7;
+  --tag-color:        #3949ab;
+  --tag-hover-bg:     #5c6bc0;
+  --tag-hover-color:  #ffffff;
+  --card-bg:          #ffffff;
+  --card-border:      #e8eaf0;
+  --hr-color:         #e8eaf0;
+  --inline-code-bg:   #eef0f7;
+  --inline-code-color:#c2185b;
+  --search-focus:     rgba(92, 107, 192, 0.15);
+  --navbar-shadow:    rgba(0, 0, 0, 0.07);
+  --card-shadow:      rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="dark"] {
+  /* Beautiful Jekyll core vars — override what the theme injects on :root */
+  --page-col:         #13131f !important;
+  --text-col:         #cdd6f4 !important;
+  --link-col:         #89b4fa !important;
+  --hover-col:        #b4befe !important;
+  --navbar-col:       #1e1e2e !important;
+  --navbar-text-col:  #cdd6f4 !important;
+  --navbar-border-col:#313244 !important;
+  --footer-col:       #11111b !important;
+  --footer-text-col:  #a6adc8 !important;
+  --footer-link-col:  #cdd6f4 !important;
+  --footer-hover-col: #ffffff !important;
+  /* Code block */
+  --code-bg:          #1e1e2e;
+  --code-text:        #cdd6f4;
+  --code-border:      transparent;
+  /* Copy button */
+  --copy-bg:          rgba(255, 255, 255, 0.08);
+  --copy-color:       #a6adc8;
+  --copy-border:      rgba(255, 255, 255, 0.15);
+  --copy-hover-bg:    rgba(255, 255, 255, 0.18);
+  --copy-hover-color: #cdd6f4;
+  /* Misc */
+  --tag-bg:           #313244;
+  --tag-color:        #89b4fa;
+  --tag-hover-bg:     #45475a;
+  --tag-hover-color:  #cdd6f4;
+  --card-bg:          #1e1e2e;
+  --card-border:      #313244;
+  --hr-color:         #313244;
+  --inline-code-bg:   #313244;
+  --inline-code-color:#f38ba8;
+  --search-focus:     rgba(137, 180, 250, 0.15);
+  --navbar-shadow:    rgba(0, 0, 0, 0.3);
+  --card-shadow:      rgba(0, 0, 0, 0.25);
+}
+
+/* Direct element overrides for dark mode (fallback for anything
+   that bypasses CSS variables in the Beautiful Jekyll stylesheet) */
+html[data-theme="dark"] body {
+  background-color: #13131f;
+  color: #cdd6f4;
+}
+
+html[data-theme="dark"] .navbar-custom {
+  background-color: #1e1e2e !important;
+  border-color: #313244 !important;
+}
+
+html[data-theme="dark"] .navbar-custom .navbar-brand,
+html[data-theme="dark"] .navbar-custom .nav-link {
+  color: #cdd6f4 !important;
+}
+
+html[data-theme="dark"] .navbar-custom .nav-link:hover {
+  color: #b4befe !important;
+}
+
+html[data-theme="dark"] footer {
+  background-color: #11111b;
+}
+
+html[data-theme="dark"] .post-preview {
+  background-color: #1e1e2e;
+  border-color: #313244;
+}
+
+html[data-theme="dark"] .post-preview .post-title a,
+html[data-theme="dark"] .post-preview .post-meta {
+  color: #cdd6f4;
+}
+
+html[data-theme="dark"] hr {
+  border-top-color: #313244;
+}
+
+/* ============================================================
+   Base typography
+   ============================================================ */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 16px;
@@ -19,9 +131,12 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* --- Navbar ------------------------------------------------ */
+/* ============================================================
+   Navbar
+   ============================================================ */
 .navbar-custom {
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 4px var(--navbar-shadow);
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .navbar-custom .navbar-brand,
@@ -30,18 +145,47 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.01em;
 }
 
-/* --- Post preview cards ------------------------------------ */
+/* ============================================================
+   Theme toggle button (injected by theme.js)
+   ============================================================ */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  line-height: 1;
+  opacity: 0.75;
+  transition: opacity 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-btn:hover {
+  opacity: 1;
+  background: rgba(128, 128, 128, 0.12);
+}
+
+.theme-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* ============================================================
+   Post preview cards
+   ============================================================ */
 .post-preview {
   border-radius: 12px;
   padding: 1.5rem 1.75rem;
   margin-bottom: 1.5rem;
-  background: #ffffff;
-  border: 1px solid #e8eaf0;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s, border-color 0.2s;
 }
 
 .post-preview:hover {
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 24px var(--card-shadow);
   transform: translateY(-2px);
 }
 
@@ -51,7 +195,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* --- Post content ----------------------------------------- */
+/* ============================================================
+   Post content
+   ============================================================ */
 .post-content {
   font-size: 1.0125rem;
 }
@@ -60,32 +206,39 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.4em;
 }
 
-/* --- Inline code ------------------------------------------ */
+/* ============================================================
+   Inline code
+   ============================================================ */
 p code, li code, td code {
-  background: #eef0f7;
-  color: #c2185b;
+  background: var(--inline-code-bg);
+  color: var(--inline-code-color);
   padding: 0.15em 0.45em;
   border-radius: 5px;
   font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
   font-size: 0.875em;
 }
 
-/* --- Code blocks ------------------------------------------ */
+/* ============================================================
+   Code blocks — adapt to current theme
+   ============================================================ */
 .highlighter-rouge {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
   margin: 1.75em 0;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--code-border);
+  transition: border-color 0.2s;
 }
 
 .highlight,
 .highlighter-rouge .highlight {
-  background: #1e1e2e !important;
+  background: var(--code-bg) !important;
   border-radius: 10px;
   padding: 1.25rem 1.5rem;
   overflow-x: auto;
   margin: 0;
+  transition: background-color 0.2s;
 }
 
 .highlight pre {
@@ -99,17 +252,20 @@ p code, li code, td code {
   font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
   font-size: 0.875rem;
   line-height: 1.65;
-  color: #cdd6f4;
+  color: var(--code-text);
+  transition: color 0.2s;
 }
 
-/* --- Copy button ------------------------------------------ */
+/* ============================================================
+   Copy button — adapts to theme
+   ============================================================ */
 .copy-code-button {
   position: absolute;
   top: 0.6rem;
   right: 0.6rem;
-  background: rgba(255, 255, 255, 0.08);
-  color: #a6adc8;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--copy-bg);
+  color: var(--copy-color);
+  border: 1px solid var(--copy-border);
   border-radius: 6px;
   padding: 0.2rem 0.65rem;
   font-size: 0.75rem;
@@ -122,18 +278,23 @@ p code, li code, td code {
 }
 
 .copy-code-button:hover {
-  background: rgba(255, 255, 255, 0.18);
-  color: #cdd6f4;
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--copy-hover-bg);
+  color: var(--copy-hover-color);
 }
 
 .copy-code-button.copied {
   background: rgba(166, 227, 161, 0.2);
-  color: #a6e3a1;
-  border-color: rgba(166, 227, 161, 0.4);
+  color: #40a02b;
+  border-color: rgba(64, 160, 43, 0.35);
 }
 
-/* --- Links ------------------------------------------------ */
+html[data-theme="dark"] .copy-code-button.copied {
+  color: #a6e3a1;
+}
+
+/* ============================================================
+   Links
+   ============================================================ */
 a {
   text-decoration: none;
 }
@@ -144,11 +305,13 @@ a:hover {
   text-decoration-thickness: 1px;
 }
 
-/* --- Tags ------------------------------------------------- */
+/* ============================================================
+   Tags
+   ============================================================ */
 .blog-tags a {
   display: inline-block;
-  background: #eef0f7;
-  color: #3949ab;
+  background: var(--tag-bg);
+  color: var(--tag-color);
   border-radius: 20px;
   padding: 0.1em 0.75em;
   font-size: 0.8rem;
@@ -159,29 +322,36 @@ a:hover {
 }
 
 .blog-tags a:hover {
-  background: #5c6bc0;
-  color: #ffffff;
+  background: var(--tag-hover-bg);
+  color: var(--tag-hover-color);
   text-decoration: none;
 }
 
-/* --- Dividers --------------------------------------------- */
+/* ============================================================
+   Dividers
+   ============================================================ */
 hr {
   border: none;
-  border-top: 1px solid #e8eaf0;
+  border-top: 1px solid var(--hr-color);
   margin: 2em 0;
+  transition: border-color 0.2s;
 }
 
-/* --- Search ----------------------------------------------- */
+/* ============================================================
+   Search input
+   ============================================================ */
 #search-input {
   border-radius: 8px;
-  border: 1px solid #e8eaf0;
+  border: 1px solid var(--card-border);
   padding: 0.5rem 1rem;
   font-family: 'Inter', sans-serif;
-  transition: box-shadow 0.15s, border-color 0.15s;
+  background: var(--card-bg);
+  color: var(--text-col, inherit);
+  transition: box-shadow 0.15s, border-color 0.15s, background-color 0.2s;
 }
 
 #search-input:focus {
   outline: none;
-  border-color: #5c6bc0;
-  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.15);
+  border-color: var(--link-col, #5c6bc0);
+  box-shadow: 0 0 0 3px var(--search-focus);
 }
